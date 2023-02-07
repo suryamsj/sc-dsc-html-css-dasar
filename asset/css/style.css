@@ -1,0 +1,24 @@
+/* Body */
+body {
+    background: white;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+    color: red;
+    font-size: 5rem;
+}
+
+.text-hijau {
+    color: green;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+#text-kuning {
+    color: yellow;
+}
