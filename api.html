@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+
+<body>
+    <div class="container">
+        <ul id="listActivity">
+            <h1>Aktifitas Yang Bisa Dikerjakan Ketika Bosan</h1>
+        </ul>
+    </div>
+
+    <script>
+        fetch('http://www.boredapi.com/api/activity/')
+            .then((response) => {
+                if (response.status !== 200) {
+                    console.log('Error...' + response.status);
+                    return;
+                }
+
+                response.json().then((data) => {
+                    console.log(data);
+                    const bored = data;
+
+                    // DOM
+                    document.getElementById('listActivity')
+                        .insertAdjacentHTML('beforeend',
+                            `<li>Aktifitas : ${bored.activity}</li>
+                            <li>Banyaknya Orang : ${bored.participants}</li>
+                            <li>Tipe : ${bored.type}</li>
+                            <li>Harga : ${bored.price}</li>
+                            `
+                        )
+                })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    </script>
+</body>
+
+</html>
